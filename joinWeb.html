@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Page</title>
+  <style>
+body, html {
+	height: 100%;
+	margin: 0;
+	font-family: Arial, sans-serif;
+	background: black;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.login-container {
+	width: 100%;
+	max-width: 400px;
+	margin: auto;
+	padding: 20px;
+}
+
+.login-form h2 {
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+.login-form p {
+	font-size: small;
+	color: grey;
+	margin-bottom: 20px;
+}
+
+.form-control {
+	margin-bottom: 10px;
+}
+
+.form-control label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+.form-control input {
+	width: 100%;
+	padding: 10px;
+	color: red;
+	display: block;
+	background: black;
+	border-style: solid;
+	border-color: white;
+	border-width: thin;
+	border-radius: 10px;
+}
+
+button {
+	width: 100%;
+	padding: 10px;
+	border: none;
+	border-radius: 10px;
+	background: white;
+	color: black;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+button:hover {
+	background: #666;
+}
+</style>
+</head>
+<body>
+
+<div class="login-container">
+  <form class="login-form" id="registerForm">
+    <h2>Sign Up</h2>
+    <p>반가워요</p>
+    <div class="form-control">
+      <label for="userID">유저이름:</label>
+      <input type="text" id="userID" name="userID" required>
+    </div>
+    
+    <button type="submit">Sign Up!</button>
+  </form>
+</div>
+
+<script src="join.js"></script>
+</body>
+</html>

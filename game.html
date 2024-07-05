@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노래 맞추기 게임</title>
+    <link rel="stylesheet" href="game.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="game-container">
+        <div class="player-list" id="player-list">
+            <!-- 유저 정보 -->
+            
+        </div>
+        <div class="game-area">
+            <!-- 문제 및 설명 텍스트 나올 영역 -->
+            <div class="question-area">
+                <div>방장이 채팅으로 <span class="highlight">/시작</span> 하면 게임이 시작됩니다</div>
+                <div>시작한 뒤에 새로고침하면 게임에서 <span class="highlight">강퇴</span> 됩니다</div>
+            </div>
+            <!-- 정답 및 노래 제목 텍스트 영역 -->
+            <div class="answer-area">
+                
+            </div>
+        </div>
+		<div class="chat-window">
+			<div class="chat-messages" id="chat-messages">
+				<!-- 채팅 메시지 -->
+			</div>
+			<div class="chat-input-area">
+				<input type="text" id="chat-input" placeholder="메시지를 입력하세요">
+				<button id="send-btn">전송</button>
+			</div>
+		</div>
+		<audio id="notification-sound" src="http://localhost:3000/audio/notification.mp3" preload="auto"></audio>
+	</div>
+	
+	<!-- 모달 창 추가 -->
+    <div id="gameOverModal" class="modal">
+        <div class="modal-content">
+            <h2>게임 종료!</h2>
+            <div id="playerStats"></div>
+            <button id="confirmBtn">확인</button>
+        </div>
+    </div>
+    
+	<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="game.js?v=1.0"></script>
+</body>
+</html>

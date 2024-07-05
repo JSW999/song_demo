@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노래 맞추기 게임</title>
+    <link rel="stylesheet" href="room_css.css?v=1.0">
+</head>
+<body>
+    <header>
+        <h1>노래 맞추기 게임</h1>
+        <div id="user-id-display"></div>
+    </header>
+    <main>
+        <section class="main-section">
+            <div class="controls">
+				<button id="start-room-btn" style="display:none;">시작</button>
+                <button id="leave-room-btn">나가기</button>
+                <button id="delete-room-btn" style="display:none;">방 삭제</button>
+            </div>
+            
+            <div class="room-info">
+                <!-- 유저 정보가 들어갈 8개 칸 -->
+                <div class="user-slot"></div>
+                <div class="user-slot"></div>
+                <div class="user-slot"></div>
+                <div class="user-slot"></div>
+                <div class="user-slot"></div>
+                <div class="user-slot"></div>
+                <div class="user-slot"></div>
+                <div class="user-slot"></div>
+            </div>
+            
+            <div class="info-section">
+                <div class="my-info">
+                    <h3>내 정보</h3>
+                    <!-- 내 정보 내용 -->
+                    <div id="user-image-box">
+                        <img id="user-image" src="http://localhost:3000/images/default-image.png" alt="User Image">
+                    </div>
+                    <div id="user-name"></div>
+                </div>
+                
+                <div class="chat-window">
+                    <div class="chat-messages" id="chat-messages">
+                        <!-- 채팅 메시지 -->
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" id="chat-input" placeholder="메시지를 입력하세요">
+                        <button id="send-btn">전송</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="room_js.js?v=1.0"></script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+body {
+    background-color: black; /* 배경 검정색 */
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 90%;
+    background-color: black;
+}
+
+.player-list {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    padding: 1rem;
+    flex: 1;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.player-color {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+}
+
+.game-area {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 3; /* 비율을 맞추기 위해 flex 값 조정 */
+    padding: 1rem;
+}
+
+.question-area {
+    background-color: black;
+    color: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    width: 100%;
+    height: 20%; /* 비율 조정 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white; /* 추가: 흰색 외각 선 */
+}
+
+.answer-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    height: 20%; /* 비율 조정 */
+}
+
+.answer-area div {
+    background-color: black;
+    color: white;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    text-align: center;
+    width: 80%;
+}
+
+.chat-window {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* 추가: chat-window에서 스크롤 발생 방지 */
+    height: 100%; /* 부모 요소의 크기에 맞추기 위해 설정 */
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.chat-messages div {
+    color: white; /* 채팅 메시지의 텍스트 색상을 흰색으로 변경 */
+}
+
+.chat-input-area {
+    display: flex;
+    
+}
+
+#chat-input {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+}
+
+#send-btn {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#send-btn:hover {
+    background-color: #0056b3;
+}
+
+.highlight {
+    color: red; /* 빨강색 글씨 */
+}
+
+/* 모달 스타일 */
+.modal {
+    display: none; /* 기본적으로 모달을 숨김 */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+#confirmBtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    float: right;
+}
