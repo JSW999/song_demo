@@ -12,7 +12,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
 	cors: {
-		origin: "http://localhost:8080",
+		origin: "http://15.164.244.5",
 		methods: ["GET", "POST"],
 		allowedHeaders: ["Content-Type"],
 		credentials: true
@@ -27,8 +27,8 @@ const skipVotes = new Map(); // 방 별로 스킵 요청을 관리하는 변수
 // MySQL 연결 설정
 const db = mysql.createPool({
 	host: 'localhost',
-	user: 'root',
-	password: '1234',
+	user: 'wjdtnsdnjs',
+	password: 'Tnsdnjs97!',
 	database: 'song_db',
 	waitForConnections: true,
 	connectionLimit: 10,
@@ -37,15 +37,15 @@ const db = mysql.createPool({
 
 // CORS 설정 추가
 app.use(cors({
-	origin: 'http://localhost:8080',
+	origin: 'http://15.164.244.5',
 	methods: ['GET', 'POST'],
 	allowedHeaders: ['Content-Type'],
 	credentials: true
 }));
 
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '../test/public')));
-app.use('/song', express.static(path.join(__dirname, '../test/public/song'))); // 정적 파일 경로 설정
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/song', express.static(path.join(__dirname, '/public/song'))); // 정적 파일 경로 설정
 
 // 유저 등록 엔드포인트
 app.post('/register', (req, res) => {
@@ -109,7 +109,7 @@ app.post('/create-room', (req, res) => {
 
 // 이미지 파일 목록 제공
 app.get('/images', (req, res) => {
-	const imagesDir = 'C:/eclipse-workspace/test/public/images';
+	const imagesDir = '/home/ec2-user/app/public/images';
 	console.log("Serving images from:", imagesDir); // 경로 로깅
 	fs.readdir(imagesDir, (err, files) => {
 		if (err) {
@@ -123,7 +123,7 @@ app.get('/images', (req, res) => {
 // 이미지 파일 제공
 app.get('/images/:filename', (req, res) => {
 	const filename = req.params.filename;
-	const imagesDir = 'C:/eclipse-workspace/test/public/images';
+	const imagesDir = '/home/ec2-user/app/public/images';
 	const filePath = path.join(imagesDir, filename);
 
 	console.log("Attempting to send:", filePath); // 경로 로깅
@@ -137,7 +137,7 @@ app.get('/images/:filename', (req, res) => {
 });
 
 app.get('/audio', (req, res) => {
-	const audioDir = 'C:/eclipse-workspace/test/public/audio';
+	const audioDir = '/home/ec2-user/app/song/public/audio';
 	console.log("Serving audio from:", audioDir); // 경로 로깅
 	fs.readdir(audioDir, (err, files) => {
 		if (err) {
@@ -151,7 +151,7 @@ app.get('/audio', (req, res) => {
 // 오디오 파일 제공
 app.get('/audio/:filename', (req, res) => {
 	const filename = req.params.filename;
-	const audioDir = 'C:/eclipse-workspace/test/public/audio';
+	const audioDir = '/home/ec2-user/app/song/public/audio';
 	const filePath = path.join(audioDir, filename);
 
 	console.log("Attempting to send:", filePath); // 경로 로깅
@@ -166,7 +166,7 @@ app.get('/audio/:filename', (req, res) => {
 
 // 노래 파일 목록 제공
 app.get('/song', (req, res) => {
-	const songDir = 'C:/eclipse-workspace/test/public/song';
+	const songDir = '/home/ec2-user/app/song/public/song';
 	console.log("Serving songs from:", songDir); // 경로 로깅
 	fs.readdir(songDir, (err, files) => {
 		if (err) {
@@ -180,7 +180,7 @@ app.get('/song', (req, res) => {
 // 노래 파일 제공
 app.get('/song/:filename', (req, res) => {
 	const filename = req.params.filename;
-	const songDir = 'C:/eclipse-workspace/test/public/song';
+	const songDir = '/home/ec2-user/app/song/public/song';
 	const filePath = path.join(songDir, filename);
 
 	console.log("Attempting to send:", filePath); // 경로 로깅
@@ -407,7 +407,7 @@ io.on('connection', socket => {
 });
 
 server.listen(port, () => {
-	console.log(`Server running at http://localhost:${port}`);
+	console.log(`Server running at http://15.164.244.5:${port}`);
 });
 
 function normalizeString(str) {
@@ -604,7 +604,7 @@ function moveGame(roomId) {
 		io.emit('getRooms'); // 방 목록 갱신 요청
 
 		// 노래 파일 로드
-		const songsDir = 'C:/eclipse-workspace/test/public/song';
+		const songsDir = '/home/ec2-user/app/song/public/song';
 		fs.readdir(songsDir, (err, files) => {
 			if (err) {
 				console.error('Error reading directory:', songsDir);

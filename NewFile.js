@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const socket = io('http://localhost:3000');
+    const socket = io('http://15.164.244.5:3000');
     const userID = localStorage.getItem('userID');
 
     if (userID) {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = document.getElementById('password').value;
         const playerCount = document.getElementById('playerCount').value;
 
-        fetch('http://localhost:3000/create-room', {
+        fetch('http://15.164.244.5:3000/create-room', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('room-list').addEventListener('click', (event) => {
         if (event.target.classList.contains('join-room-btn')) {
             const roomId = event.target.dataset.roomId;
-            window.location.href = `http://localhost:8080/test/room.html?roomId=${roomId}`;
+            window.location.href = `http://15.164.244.5/app/song/room.html?roomId=${roomId}`;
         }
     });
 
@@ -120,14 +120,14 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('user-image').src = imageUrl;
     });
 
-    fetch('http://localhost:3000/images')
+    fetch('http://15.164.244.5:3000/images')
         .then(response => response.json())
         .then(images => {
             const imageSelection = document.getElementById('image-selection');
             if (Array.isArray(images)) {
                 images.forEach(image => {
                     const imgElement = document.createElement('img');
-                    imgElement.src = `http://localhost:3000/images/${image}`;
+                    imgElement.src = `http://15.164.244.5:3000/images/${image}`;
                     imageSelection.appendChild(imgElement);
                 });
             } else {

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 	 // 소켓 초기화
-    const socket = io('http://localhost:3000', {
+    const socket = io('http://15.164.244.5:3000', {
         transports: ['websocket'],
         upgrade: false
     });
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     socket.on('roomStatus', (data) => {
         if (data.started) {
             alert('이미 시작된 게임입니다!');
-            window.location.href = 'http://localhost:8080/test/NewFile.html';
+            window.location.href = 'http://15.164.244.5/app/song/NewFile.html';
         } else {
             // 플레이어 목록 표시
             userList.forEach((user, index) => {
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		
 		
 		// Intro audio 재생
-        introAudio = new Audio('http://localhost:3000/audio/introSound.mp3');
+        introAudio = new Audio('http://15.164.244.5/audio/introSound.mp3');
         introAudio.loop = true;
         introAudio.play();
 	});
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 	
     // 방 나가기 처리 함수
-	const handleLeaveRoom = (redirectUrl = 'http://localhost:8080/test/NewFile.html', removeBeforeUnload = false) => {
+	const handleLeaveRoom = (redirectUrl = 'http://15.164.244.5/app/song/NewFile.html', removeBeforeUnload = false) => {
 		console.log(`handleLeaveRoom called with redirectUrl: ${redirectUrl}`); // 디버깅 로그 추가
 		socket.emit('leaveGameRoom', { roomId: roomId, userId });
 		if (removeBeforeUnload) {
@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		console.log(`Playing song: ${songUrl}`); // 디버깅 로그 추가
 
-		currentAudio = new Audio(`http://localhost:3000${songUrl}`);
+		currentAudio = new Audio(`http://15.164.244.5${songUrl}`);
 		console.log(currentAudio); // 디버깅 로그 추가
 		currentAudio.play();
 
@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
     socket.on('gameOver', (data) => {
         questionArea.textContent = '게임 종료!';
         
-        const finishSong = new Audio('http://localhost:3000/audio/finishSong.mp3');
+        const finishSong = new Audio('http://15.164.244.5/audio/finishSong.mp3');
         finishSong.play();
 
         gameOverModal.style.display = 'block';
@@ -290,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
         confirmBtn.onclick = () => {
             gameOverModal.style.display = 'none';
             console.log('종료 모달창 - 확인버튼 클릭 -' + roomId + '방 이동');
-            handleLeaveRoom(`http://localhost:8080/test/room.html?roomId=${roomId}`, true);
+            handleLeaveRoom(`http://15.164.244.5/app/song/room.html?roomId=${roomId}`, true);
         };
         
 		userList.forEach(user => {

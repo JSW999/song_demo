@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const socket = io('http://localhost:3000', {
+    const socket = io('http://15.164.244.5:3000', {
         transports: ['websocket'],
         upgrade: false
     });
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             roomDeletedHandled = true;
             alert('방이 삭제되었습니다.');
             setTimeout(() => {
-                window.location.href = 'http://localhost:8080/test/NewFile.html';
+                window.location.href = 'http://15.164.244.5/app/song/NewFile.html';
             }, 500);
         }
     });
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     socket.on('gameAlreadyStarted', (data) => {
         alert('게임이 이미 시작되었습니다!');
         setTimeout(() => {
-            window.location.href = 'http://localhost:8080/test/NewFile.html';
+            window.location.href = 'http://15.164.244.5/app/song/NewFile.html';
         }, 500);
     });
 
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function leaveRoom(socket, roomId, userId) {
         socket.emit('leaveRoom', { roomId, userId });
         setTimeout(() => {
-            window.location.href = 'http://localhost:8080/test/NewFile.html';
+            window.location.href = 'http://localhost:8080/app/song/NewFile.html';
         }, 500);
     }
 
