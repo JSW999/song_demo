@@ -3,7 +3,7 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
 
     const userID = document.getElementById('userID').value;
 
-    fetch('http://localhost:3000/register', {
+    fetch('http://15.164.244.5:3000/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

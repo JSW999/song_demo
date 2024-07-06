@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function leaveRoom(socket, roomId, userId) {
         socket.emit('leaveRoom', { roomId, userId });
         setTimeout(() => {
-            window.location.href = 'http://localhost:8080/app/song/NewFile.html';
+            window.location.href = 'http:/15.164.244.5/app/song/NewFile.html';
         }, 500);
     }
 

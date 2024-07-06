@@ -109,7 +109,7 @@ app.post('/create-room', (req, res) => {
 
 // 이미지 파일 목록 제공
 app.get('/images', (req, res) => {
-	const imagesDir = '/home/ec2-user/app/public/images';
+	const imagesDir = '/home/ec2-user/app/song/public/images';
 	console.log("Serving images from:", imagesDir); // 경로 로깅
 	fs.readdir(imagesDir, (err, files) => {
 		if (err) {
@@ -123,7 +123,7 @@ app.get('/images', (req, res) => {
 // 이미지 파일 제공
 app.get('/images/:filename', (req, res) => {
 	const filename = req.params.filename;
-	const imagesDir = '/home/ec2-user/app/public/images';
+	const imagesDir = '/home/ec2-user/app/song/public/images';
 	const filePath = path.join(imagesDir, filename);
 
 	console.log("Attempting to send:", filePath); // 경로 로깅
